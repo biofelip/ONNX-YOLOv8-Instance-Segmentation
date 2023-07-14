@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 
-class_names = ['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',
+class_names = ['Patient', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',
                'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow',
                'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee',
                'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard',
@@ -107,6 +107,7 @@ def draw_detections(image, boxes, scores, class_ids, mask_alpha=0.3, mask_maps=N
 def draw_masks(image, boxes, class_ids, mask_alpha=0.3, mask_maps=None):
     mask_img = image.copy()
 
+
     # Draw bounding boxes and labels of detections
     for i, (box, class_id) in enumerate(zip(boxes, class_ids)):
         color = colors[class_id]
@@ -123,6 +124,8 @@ def draw_masks(image, boxes, class_ids, mask_alpha=0.3, mask_maps=None):
             mask_img[y1:y2, x1:x2] = crop_mask_img
 
     return cv2.addWeighted(mask_img, mask_alpha, image, 1 - mask_alpha, 0)
+
+        
 
 
 def draw_comparison(img1, img2, name1, name2, fontsize=2.6, text_thickness=3):

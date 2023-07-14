@@ -1,4 +1,6 @@
-opencv-python
-imread-from-url
-onnxruntime-gpu
-cap-from-youtube
+matplotlib==3.5.1
+numpy==1.21.6
+onnxruntime==1.14.1
+opencv_python==4.5.2.52
+opencv_python_headless==4.5.2.52
+scipy==1.7.3
